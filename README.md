@@ -10,6 +10,8 @@ This `AGENTS.md` file tells the agent how to get all of this set up.
 **Give your favorite coding agent this file, an ElevenLabs API key, and your video idea. Get out something like this:**
 
 
+Prompt: "create an emotional video about outer and inner misalignment" 
+
 https://github.com/user-attachments/assets/1df6a754-e99a-43b0-ac78-551ffa836dab
 
 https://github.com/user-attachments/assets/3cba704c-301d-4807-a5fc-28b568e402ff

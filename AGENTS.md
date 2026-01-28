@@ -76,7 +76,7 @@ class MyVideo(VoiceoverScene):
     def construct(self):
         self.set_speech_service(
             ElevenLabsService(
-                voice_name="Adam",
+                voice_id="JBFqnCBsd6RMkjVDRZzb",  # George
                 model="eleven_turbo_v2_5",
             )
         )
@@ -89,10 +89,26 @@ class MyVideo(VoiceoverScene):
 
 | Parameter | Description | Example |
 |-----------|-------------|---------|
-| `voice_name` | Voice name from ElevenLabs | `"Adam"`, `"Rachel"` |
-| `voice_id` | Voice ID (alternative to name) | `"pNInz6obpgDQGcFmaJgB"` |
+| `voice_id` | Voice ID from ElevenLabs (**required**) | `"JBFqnCBsd6RMkjVDRZzb"` |
 | `model` | TTS model | `"eleven_turbo_v2_5"` |
 | `voice_settings` | Fine-tune voice (optional) | `{"stability": 0.5, "similarity_boost": 0.75}` |
+
+**Important:** Use `voice_id`, not `voice_name`. The name lookup is unreliable.
+
+### Fetching Available Voice IDs
+
+Run this to list your available voices:
+```python
+from elevenlabs import ElevenLabs
+client = ElevenLabs()
+for v in client.voices.get_all().voices:
+    print(f'{v.name}: {v.voice_id}')
+```
+
+Example voices (IDs may vary by account):
+- `JBFqnCBsd6RMkjVDRZzb` - George (warm storyteller, good for narration)
+- `EXAVITQu4vr4xnSDxMaL` - Sarah (mature, confident)
+- `Xb7hH8MSUJpSbSDYk0k2` - Alice (clear educator)
 
 ## The Voiceover Context Manager
 
@@ -134,7 +150,7 @@ class EducationalVideo(VoiceoverScene):
     def construct(self):
         self.set_speech_service(
             ElevenLabsService(
-                voice_name="Adam",
+                voice_id="JBFqnCBsd6RMkjVDRZzb",  # George
                 model="eleven_turbo_v2_5",
             )
         )
@@ -219,7 +235,7 @@ class VideoName(VoiceoverScene):
     def construct(self):
         self.set_speech_service(
             ElevenLabsService(
-                voice_name="Adam",
+                voice_id="JBFqnCBsd6RMkjVDRZzb",  # George
                 model="eleven_turbo_v2_5",
             )
         )
@@ -288,7 +304,7 @@ class PythagorasExplainer(VoiceoverScene):
     def construct(self):
         self.set_speech_service(
             ElevenLabsService(
-                voice_name="Adam",
+                voice_id="JBFqnCBsd6RMkjVDRZzb",  # George
                 model="eleven_turbo_v2_5",
             )
         )

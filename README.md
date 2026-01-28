@@ -9,6 +9,9 @@ This `AGENTS.md` file tells the agent how to get all of this set up.
 
 **Give your favorite coding agent this file, an ElevenLabs API key, and your video idea. Get out something like this:**
 
+
+https://github.com/user-attachments/assets/1df6a754-e99a-43b0-ac78-551ffa836dab
+
 https://github.com/user-attachments/assets/3cba704c-301d-4807-a5fc-28b568e402ff
 
 https://github.com/user-attachments/assets/fff2ab1f-9bd4-46cb-8de1-347538b2fa02

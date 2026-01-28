@@ -391,6 +391,98 @@ Before finalizing:
 - [ ] Smooth transitions between sections
 - [ ] Proper wait times at end of sections
 
+## Autonomous Video Verification
+
+Use this workflow to self-verify rendered videos without human review.
+
+### Step 1: Extract Key Frames
+
+After rendering, extract frames at key timestamps using ffmpeg:
+
+```bash
+# Extract 8 evenly-spaced frames from video
+./verify_video.sh media/videos/scene_name/720p30/SceneName.mp4 8
+```
+
+Or manually:
+```bash
+mkdir -p media/verification_frames
+ffmpeg -ss 30 -i video.mp4 -vframes 1 frame_30s.png  # Extract frame at 30s
+```
+
+### Step 2: Define Expected Visuals
+
+Before verification, document what each section should show:
+
+```
+Section 1 (0-15s): Title "Topic Name" centered, subtitle below
+Section 2 (15-40s): Diagram with labeled elements A, B, C connected by arrows
+Section 3 (40-70s): Two side-by-side boxes comparing X vs Y
+Section 4 (70-100s): Conclusion text, call to action
+```
+
+### Step 3: Verify with Subagent
+
+Use the Task tool to dispatch a verification subagent:
+
+```
+Task: Verify video frames against expected layout
+
+Expected visuals:
+- Frame at 0s: Black screen or title appearing
+- Frame at 15s: "SECTION TITLE" in orange at top, human/AI icons with arrow
+- Frame at 30s: Text "Key Concept" visible and fully readable (not cut off)
+- Frame at 60s: Circle containing two text lines, both fully visible
+- Frame at 90s: Two comparison boxes side by side, "Both are X" text at bottom
+
+Instructions:
+1. Use look_at tool on each frame in media/verification_frames/
+2. Compare actual content against expected visuals above
+3. Report ONLY issues found (text cut off, elements missing, overlap, etc.)
+4. If no issues, report "All frames verified successfully"
+
+Frame paths:
+- media/verification_frames/frame_00_at_0s.png
+- media/verification_frames/frame_01_at_15s.png
+- ... etc
+```
+
+### Step 4: Fix and Re-verify
+
+Common issues and fixes:
+| Issue | Fix |
+|-------|-----|
+| Text cut off | Reduce `font_size` or adjust position with `.move_to()` |
+| Elements overlap | Increase `buff` spacing or use `.shift()` |
+| Text not readable | Increase `font_size`, improve color contrast |
+| Missing elements | Check animation timing, ensure `run_time` is sufficient |
+
+After fixing, delete old frames and re-extract:
+```bash
+rm -rf media/verification_frames
+./verify_video.sh media/videos/.../SceneName.mp4 8
+```
+
+### Verification Script
+
+The `verify_video.sh` script extracts evenly-spaced frames:
+
+```bash
+#!/bin/bash
+# Usage: ./verify_video.sh <video_path> [num_frames]
+VIDEO_PATH="$1"
+NUM_FRAMES="${2:-5}"
+OUTPUT_DIR="media/verification_frames"
+
+mkdir -p "$OUTPUT_DIR"
+DURATION=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$VIDEO_PATH")
+
+for i in $(seq 0 $((NUM_FRAMES - 1))); do
+    TIMESTAMP=$(echo "scale=2; $DURATION * $i / ($NUM_FRAMES - 1)" | bc)
+    ffmpeg -y -ss "$TIMESTAMP" -i "$VIDEO_PATH" -vframes 1 -q:v 2 "$OUTPUT_DIR/frame_$(printf '%02d' $i)_at_${TIMESTAMP}s.png" 2>/dev/null
+done
+```
+
 ---
 
 **To create a video:** Give this agent a video description and your ELEVEN_API_KEY. The agent will write the Manim code, save it to a `.py` file, and provide the render command.

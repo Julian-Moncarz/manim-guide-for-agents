@@ -6,6 +6,8 @@ manim-voiceover-plus is a manim plugin which lets you add AI-generated audio via
 
 This `AGENTS.md` file tells the agent how to get all of this set up.
 
-**Give your favorite coding agent this file, an ElevenLabs API key, and your video idea. Get out something like this!**
+**Give your favorite coding agent this file, an ElevenLabs API key, and your video idea. Get out something like this:**
 
-<!-- TODO: Add example video here -->
+
+https://github.com/user-attachments/assets/3cba704c-301d-4807-a5fc-28b568e402ff
+

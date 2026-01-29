@@ -38,8 +38,6 @@ https://github.com/user-attachments/assets/927f26da-dd3a-4456-aa17-43f4f882d5d1
 https://github.com/user-attachments/assets/5a50d64c-84b8-4e90-b1c6-a27aff234483
 
 
-https://github.com/user-attachments/assets/0d29d012-ec4a-4070-b8a7-3624b7be126e
-
 
 
 

@@ -3,7 +3,7 @@
 Manim is a DSL created by 3blue1brown which lets you define videos in code.
 manim-voiceover-plus is a manim plugin which lets you add AI-generated audio via ElevenLabs directly to the videos.
 
-Using these, agents can make coherent videos very quickly.
+Using these, agents can make coherent videos. **Prompt to rendered vid is ~40 seconds.**
 
 This `AGENTS.md` file tells the agent how to get all of this set up.
 

@@ -10,7 +10,9 @@ This `AGENTS.md` file tells the agent how to get all of this set up.
 **Give your favorite coding agent this file, an ElevenLabs API key, and your video idea. Get out something like this:**
 
 
-Prompt: "create an emotional video about outer and inner misalignment" 
+Prompt: "create a 30s video about X - google to learn about it first" 
+
+Example chat: https://ampcode.com/threads/T-019c0b04-204b-743c-b22c-e7120de010f6
 
 https://github.com/user-attachments/assets/1df6a754-e99a-43b0-ac78-551ffa836dab
 

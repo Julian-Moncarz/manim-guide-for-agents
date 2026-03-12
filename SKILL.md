@@ -1,11 +1,11 @@
 ---
 name: manim-skill
-description: Create voiced-over educational videos using Manim and ElevenLabs TTS. Use this skill when the user asks to create a video, make an animation, produce an explainer, or generate visual content about a topic. Also trigger when the user mentions manim, voiceover videos, or educational animations. If the user says something like "make a video about X" or "create a 30s explainer on Y", this is the skill to use.
+description: Create voiced-over videos using Manim and ElevenLabs TTS. Use this skill when the user asks to create a video, make an animation, or generate visual content — educational, comedic, artistic, promotional, or anything else. Trigger when the user mentions manim, voiceover videos, or animations. If the user says something like "make a video about X" or "create a 30s explainer on Y", this is the skill to use.
 ---
 
 # Manim Video Creator
 
-Create voiced-over educational videos using Manim + ElevenLabs TTS.
+Create voiced-over videos using Manim + ElevenLabs TTS.
 
 ## Setup
 

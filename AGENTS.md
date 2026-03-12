@@ -463,26 +463,6 @@ rm -rf media/verification_frames
 ./verify_video.sh media/videos/.../SceneName.mp4 8
 ```
 
-### Verification Script
-
-The `verify_video.sh` script extracts evenly-spaced frames:
-
-```bash
-#!/bin/bash
-# Usage: ./verify_video.sh <video_path> [num_frames]
-VIDEO_PATH="$1"
-NUM_FRAMES="${2:-5}"
-OUTPUT_DIR="media/verification_frames"
-
-mkdir -p "$OUTPUT_DIR"
-DURATION=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$VIDEO_PATH")
-
-for i in $(seq 0 $((NUM_FRAMES - 1))); do
-    TIMESTAMP=$(echo "scale=2; $DURATION * $i / ($NUM_FRAMES - 1)" | bc)
-    ffmpeg -y -ss "$TIMESTAMP" -i "$VIDEO_PATH" -vframes 1 -q:v 2 "$OUTPUT_DIR/frame_$(printf '%02d' $i)_at_${TIMESTAMP}s.png" 2>/dev/null
-done
-```
-
 ---
 
 **To create a video:** Give this agent a video description and your ELEVEN_API_KEY. The agent will write the Manim code, save it to a `.py` file, and provide the render command.

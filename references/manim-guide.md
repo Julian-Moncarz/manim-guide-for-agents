@@ -4,8 +4,8 @@
 
 | Model | Speed | Quality | Cost | Best For |
 |-------|-------|---------|------|----------|
-| `eleven_flash_v2_5` | ~75ms | Good | 0.5 c/char | Fast iteration, drafts |
-| `eleven_turbo_v2_5` | ~250ms | High | 0.5 c/char | **Recommended** |
+| `eleven_flash_v2_5` | ~75ms | Good | 0.5 c/char | use this almost all the time |
+| `eleven_turbo_v2_5` | ~250ms | High | 0.5 c/char | or this |
 | `eleven_multilingual_v2` | ~500ms | Highest | 1 c/char | Premium final renders |
 
 ## Voice Selection

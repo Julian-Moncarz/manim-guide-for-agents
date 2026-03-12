@@ -1,18 +1,17 @@
-# Manim Guide for Agents
+# manim-skill
 
-Manim is a DSL created by 3blue1brown which lets you define videos in code.
-manim-voiceover-plus is a manim plugin which lets you add AI-generated audio via ElevenLabs directly to the videos.
+A Claude Code skill that lets agents create voiced-over educational videos using Manim + ElevenLabs TTS. Prompt to rendered video in ~40 seconds.
 
-Using these, agents can make coherent videos. **Prompt to rendered vid is ~40 seconds.**
+## Install
 
-This `AGENTS.md` file tells the agent how to get all of this set up.
+```bash
+# Clone into your Claude Code skills directory
+git clone https://github.com/julianmoncarz/manim-skill.git ~/.claude/skills/manim-skill
+```
 
-**Give your favorite coding agent this file, an ElevenLabs API key, and your video idea. Get out something like this:**
+Then set your `ELEVEN_API_KEY` environment variable and ask Claude to make a video.
 
-
-Prompt: "create a 30s video about X - google to learn about it first" 
-Example chat: https://ampcode.com/threads/T-019c0b04-204b-743c-b22c-e7120de010f6
-
+## Examples
 
 https://github.com/user-attachments/assets/fff2ab1f-9bd4-46cb-8de1-347538b2fa02
 
@@ -24,10 +23,12 @@ https://github.com/user-attachments/assets/927f26da-dd3a-4456-aa17-43f4f882d5d1
 
 https://github.com/user-attachments/assets/5a50d64c-84b8-4e90-b1c6-a27aff234483
 
-https://github.com/user-attachments/assets/3cba704c-301d-4807-a5fc-28b568e402ff 
+https://github.com/user-attachments/assets/3cba704c-301d-4807-a5fc-28b568e402ff
 
 https://github.com/user-attachments/assets/66a52d7f-1c73-4c00-aa49-22a4ee785c28
 
 https://github.com/user-attachments/assets/1df6a754-e99a-43b0-ac78-551ffa836dab
 
+## License
 
+MIT
